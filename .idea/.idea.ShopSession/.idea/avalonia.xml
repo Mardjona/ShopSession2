@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ShopSession/AddWindow.axaml" value="ShopSession/ShopSession.csproj" />
+        <entry key="ShopSession/AdminWindow.axaml" value="ShopSession/ShopSession.csproj" />
+        <entry key="ShopSession/MainWindow.axaml" value="ShopSession/ShopSession.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

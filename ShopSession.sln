@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopSession", "ShopSession\ShopSession.csproj", "{075C85D6-4EC1-402F-AFC7-C9D33BB562DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{075C85D6-4EC1-402F-AFC7-C9D33BB562DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075C85D6-4EC1-402F-AFC7-C9D33BB562DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075C85D6-4EC1-402F-AFC7-C9D33BB562DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075C85D6-4EC1-402F-AFC7-C9D33BB562DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

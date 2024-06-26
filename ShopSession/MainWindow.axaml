@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ShopSession.MainWindow"
+        Title="ShopSession">
+   <Window.Styles>
+        <Styles>
+            <Style Selector="TextBox">
+                <Setter Property="Width" Value="150"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </Styles>
+    </Window.Styles>
+      <Grid RowDefinitions="Auto, *, Auto, *, *,*">
+        <TextBlock
+            Grid.Row="0"
+            Text="Вход в магазин"
+            Background="MediumSlateBlue"
+            Margin="50"
+            FontSize="30"
+            TextAlignment="Center">
+             
+        </TextBlock>
+        <TextBox Grid.Row="1"
+                Name="KeyTextBox"
+                 BorderBrush="MediumSlateBlue"
+                 Watermark="Password">
+        </TextBox>
+        <Button Grid.Row="5"
+               
+                Name="SigninButton"
+                Background="SlateBlue"
+                Content="Enter"
+                HorizontalAlignment="Center">
+             
+        </Button>
+    </Grid>
+   </Window>

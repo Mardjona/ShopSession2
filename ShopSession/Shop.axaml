@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:shopSession="clr-namespace:ShopSession"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:CompileBindings="False"
+        x:Class="ShopSession.Shop"
+        Title="Shop">
+        <StackPanel>
+                <TextBlock HorizontalAlignment="Right" Name="UserName" Text="{Binding username}"></TextBlock>
+                <Button Click="Exit"  HorizontalAlignment="Right">
+                        <TextBlock> Выйти</TextBlock>
+                </Button>
+                <TextBlock Name="ItemQuantity"></TextBlock>
+                <ScrollViewer>
+                        <ListBox PointerReleased="Edit" Height="450" Name="ShoppCart">
+                                <ListBox.ItemTemplate>
+                                        <DataTemplate DataType="shopSession:Products">
+                                                <Border BorderBrush="DarkSlateGray" BorderThickness="2">
+                                                        <Grid ColumnDefinitions="200, *,200 ,*">
+                                                                <Border Grid.Column="0" Margin="15" BorderBrush="DarkSlateGray" BorderThickness="2">
+                                                                        <StackPanel Margin="10">
+                                                                                <TextBlock FontWeight="Black" Text="{Binding name}"> </TextBlock>
+                                                                                <Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto">
+                                                                                        <TextBlock Grid.Column="0" Grid.Row="0" Margin="0 5 0 0" Text="Описание товара"></TextBlock>
+                                                                                        <TextBlock Grid.Column="1" Grid.Row="0" Width="200" TextWrapping="Wrap" Text="{Binding description}"></TextBlock>
+                                                                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Производитель"></TextBlock>
+                                                                                        <TextBlock Grid.Column="1" Grid.Row="1" Width="200" TextWrapping="Wrap" Text="{Binding provaider}"></TextBlock>
+                                                                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Стоимость"></TextBlock>
+                                                                                        <TextBlock Grid.Column="1" Grid.Row="2" Width="200" TextWrapping="Wrap" Text="{Binding price}"></TextBlock>
+                                                                                </Grid>
+                                                                        </StackPanel>
+                                                                </Border>
+                                                                <Border Grid.Column="3" Margin="15" BorderBrush="Black" BorderThickness="2">
+                                                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                                                        На складе:
+                                                                                </TextBlock>
+                                                                                <TextBlock Name="Quantity" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding quantity}"/>
+                                                                        </StackPanel>
+                                                                </Border>
+                                                                
+                                                        </Grid>
+                                                </Border>
+                                        </DataTemplate>
+                                </ListBox.ItemTemplate>
+                        </ListBox>
+                </ScrollViewer>
+        </StackPanel>
+
+</Window>
