@@ -3,9 +3,11 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="ShopSession/AddProduct.axaml" value="ShopSession/ShopSession.csproj" />
         <entry key="ShopSession/AddWindow.axaml" value="ShopSession/ShopSession.csproj" />
         <entry key="ShopSession/AdminWindow.axaml" value="ShopSession/ShopSession.csproj" />
         <entry key="ShopSession/MainWindow.axaml" value="ShopSession/ShopSession.csproj" />
+        <entry key="ShopSession/Shop.axaml" value="ShopSession/ShopSession.csproj" />
       </map>
     </option>
   </component>

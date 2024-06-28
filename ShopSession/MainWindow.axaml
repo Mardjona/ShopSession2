@@ -5,38 +5,22 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ShopSession.MainWindow"
         Title="ShopSession">
-   <Window.Styles>
-        <Styles>
-            <Style Selector="TextBox">
-                <Setter Property="Width" Value="150"></Setter>
-                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-                <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                <Setter Property="FontSize" Value="20"></Setter>
-            </Style>
-        </Styles>
-    </Window.Styles>
-      <Grid RowDefinitions="Auto, *, Auto, *, *,*">
-        <TextBlock
-            Grid.Row="0"
-            Text="Вход в магазин"
-            Background="MediumSlateBlue"
-            Margin="50"
-            FontSize="30"
-            TextAlignment="Center">
-             
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock FontSize="30" Background="RosyBrown" Foreground="DarkSlateBlue"> Добро пожаловать в магазин</TextBlock>
+        <TextBlock HorizontalAlignment="Center" IsVisible="False" Foreground="Red" Name="ErrorLogIn">
+            Неверный логин или пароль
         </TextBlock>
-        <TextBox Grid.Row="1"
-                Name="KeyTextBox"
-                 BorderBrush="MediumSlateBlue"
-                 Watermark="Password">
-        </TextBox>
-        <Button Grid.Row="5"
-               
-                Name="SigninButton"
-                Background="SlateBlue"
-                Content="Enter"
-                HorizontalAlignment="Center">
-             
+        <TextBox Margin = "100 10" Name="Login" HorizontalAlignment="Stretch" Watermark="Логин"/>
+        <TextBox Margin="100 10 " Name="Password" HorizontalAlignment="Stretch" Watermark="Пароль"/>
+        <Button Width="90" Click="LogIn" Background="RosyBrown" HorizontalAlignment="Center" Margin="95 10">
+            <TextBlock TextAlignment="Center">
+                Вход
+            </TextBlock>
         </Button>
-    </Grid>
+        <Button Click="GusetLogIn" Background="RosyBrown" HorizontalAlignment="Left" Margin="100 10">
+            <TextBlock>
+                Войти как гость
+            </TextBlock>
+        </Button>
+    </StackPanel>
    </Window>

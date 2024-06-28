@@ -7,46 +7,104 @@
         x:CompileBindings="False"
         x:Class="ShopSession.Shop"
         Title="Shop">
-        <StackPanel>
-                <TextBlock HorizontalAlignment="Right" Name="UserName" Text="{Binding username}"></TextBlock>
-                <Button Click="Exit"  HorizontalAlignment="Right">
-                        <TextBlock> Выйти</TextBlock>
-                </Button>
-                <TextBlock Name="ItemQuantity"></TextBlock>
-                <ScrollViewer>
-                        <ListBox PointerReleased="Edit" Height="450" Name="ShoppCart">
-                                <ListBox.ItemTemplate>
-                                        <DataTemplate DataType="shopSession:Products">
-                                                <Border BorderBrush="DarkSlateGray" BorderThickness="2">
-                                                        <Grid ColumnDefinitions="200, *,200 ,*">
-                                                                <Border Grid.Column="0" Margin="15" BorderBrush="DarkSlateGray" BorderThickness="2">
-                                                                        <StackPanel Margin="10">
-                                                                                <TextBlock FontWeight="Black" Text="{Binding name}"> </TextBlock>
-                                                                                <Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto">
-                                                                                        <TextBlock Grid.Column="0" Grid.Row="0" Margin="0 5 0 0" Text="Описание товара"></TextBlock>
-                                                                                        <TextBlock Grid.Column="1" Grid.Row="0" Width="200" TextWrapping="Wrap" Text="{Binding description}"></TextBlock>
-                                                                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Производитель"></TextBlock>
-                                                                                        <TextBlock Grid.Column="1" Grid.Row="1" Width="200" TextWrapping="Wrap" Text="{Binding provaider}"></TextBlock>
-                                                                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Стоимость"></TextBlock>
-                                                                                        <TextBlock Grid.Column="1" Grid.Row="2" Width="200" TextWrapping="Wrap" Text="{Binding price}"></TextBlock>
-                                                                                </Grid>
-                                                                        </StackPanel>
-                                                                </Border>
-                                                                <Border Grid.Column="3" Margin="15" BorderBrush="Black" BorderThickness="2">
-                                                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                                                        На складе:
-                                                                                </TextBlock>
-                                                                                <TextBlock Name="Quantity" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding quantity}"/>
-                                                                        </StackPanel>
-                                                                </Border>
-                                                                
-                                                        </Grid>
-                                                </Border>
-                                        </DataTemplate>
-                                </ListBox.ItemTemplate>
-                        </ListBox>
-                </ScrollViewer>
-        </StackPanel>
-
+        	<StackPanel >
+		<StackPanel Orientation="Horizontal">
+			<TextBlock Margin="5 3" FontSize="15" Foreground="Brown" Name="UserName" Text="{Binding username}">
+			</TextBlock>
+			<Button Click="Exit" Margin = "5 3 " HorizontalAlignment="Left" >
+						<TextBlock>
+							Выйти
+						</TextBlock>
+			</Button>
+		</StackPanel>
+		
+		<StackPanel Orientation="Horizontal">
+			<AutoCompleteBox
+				CornerRadius="10"
+				BorderThickness="2"
+				FilterMode="Contains"
+				Watermark="Поиск товара"
+				Text="{Binding SearchText}"
+				ItemsSource="{Binding ProductNames}"/>
+			<ComboBox SelectedIndex="0" Margin="360 0 10 0">
+				<ComboBoxItem>Без сортировки</ComboBoxItem>
+				<ComboBoxItem>По возрастанию</ComboBoxItem>
+				<ComboBoxItem>По убыванию</ComboBoxItem>
+			</ComboBox>
+			<ComboBox
+				
+				SelectedItem="{Binding SelectedProductFilter}"
+				SelectedIndex="{Binding SelectedIndexFilter}"
+				ItemsSource="{Binding ProductsProvider}">
+				<ComboBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding manufacturer}" > Все производители</TextBlock>
+					</DataTemplate>
+				</ComboBox.ItemTemplate>
+			</ComboBox>
+			<Button Margin = "6 0" Click="Basket" HorizontalAlignment="Right"  >
+					<TextBlock>Корзина</TextBlock>
+				</Button>
+		</StackPanel>
+		
+				
+	    
+		 <TextBlock Name="ItemQuantity"/>
+		 <Border BorderBrush="DimGray" BorderThickness="0">
+			 <TextBlock  Margin="8" HorizontalAlignment="Center" FontSize="18" Name="result" Text="{Binding Sum}"/>
+		 </Border>
+		<ScrollViewer>
+			<ListBox PointerReleased="Edit" SelectionMode = "Multiple, Toggle" Height="450" Name="ShoppingCart">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border BorderBrush="Black" BorderThickness="1">
+							<Grid ColumnDefinitions="200, *, 120">
+								<Border Grid.Column="0" Margin="15" BorderBrush="Black" BorderThickness="1">
+									<Image Name="ProductImage" Source="{Binding productImage}"/>
+								</Border>
+								<Border Grid.Column="1" Margin="15" BorderBrush="Black" BorderThickness="1">
+									<StackPanel Margin="10">
+										
+										<TextBlock FontWeight="Black" Text="{Binding name}"/>
+										<Button Content ="Удалить" Click="Delite" HorizontalAlignment="Right" Tag="{Binding IDProduct}">
+											
+										</Button>
+										<Grid ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, Auto">
+											<TextBlock Grid.Column="0" Grid.Row="0" Margin="0 5 9 0"  Text="Описание товара"/>
+											<TextBlock Grid.Column="1" Grid.Row="0" Width="200" TextWrapping="Wrap" TextTrimming="" Text="{Binding description}"/>
+											<TextBlock Grid.Column="0" Grid.Row="1" Text="Производитель:"/>
+											<TextBlock Grid.Column="1" Grid.Row="1" Width="200" TextWrapping="Wrap" Text="{Binding manufacturer}"/>
+											<TextBlock Grid.Column="0" Grid.Row="2" Text="Цена:"/>
+											<TextBlock Grid.Column="1" Grid.Row="2" Width="200" TextWrapping="Wrap" Text="{Binding price}"/>
+										</Grid>
+										
+									</StackPanel>
+									
+								</Border>
+								<Border Grid.Column ="3" Margin="15" BorderBrush="Black" BorderThickness="1">
+									<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+										<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+											На складе:
+										</TextBlock>
+										<TextBlock Name="Quantity" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding quantity}"/>
+									</StackPanel>
+								</Border>
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</ScrollViewer>
+		<StackPanel Orientation="Horizontal">
+			<Button  Margin = "15 20" Name="AddButton" Click="ProductAdd" HorizontalAlignment="Stretch">
+				<TextBlock>
+					Добавить товар
+				</TextBlock>
+			
+			</Button>
+			<Button   Click="AddBusket" HorizontalAlignment = "Stretch" CornerRadius = "5" 
+			           Content="Добавить в корзину"></Button>
+		</StackPanel>
+		
+	</StackPanel>
 </Window>

@@ -5,142 +5,38 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ShopSession.AddProduct"
         Title="AddWindow">
-   <StackPanel>
-            
-            <TextBlock Margin="50 15" FontSize="25" Foreground="Gray"> Добавление товара </TextBlock>
-            <Grid Margin="5 5 " ColumnDefinitions="* * " RowDefinitions="* * * * * * * *">
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="0" 
-                    Margin = "10" 
-                    Foreground="Gray" 
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Center" 
-                    Text="Название"
-                    >
-                </TextBlock>
-                <TextBox 
-                    Grid.Column="1" Grid.Row="0"
-                    Margin="10" 
-                    HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Center"
-                    Watermark="Name">
-                    
-                </TextBox>
-                <TextBlock
-                    Grid.Column="0" Grid.Row="1"
-                    Margin="10"
-                    Foreground="Gray" 
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Center" 
-                    Text="Категория">
-                    
-                </TextBlock>
-                <TextBox 
-                    Grid.Column="1" Grid.Row="1"
-                    Margin="10" 
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center" 
-                    Watermark="Category">
-                    
-                </TextBox>
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="2" 
-                    Margin="10" 
-                    Foreground="Gray"
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Center" 
-                    Text="Количество">
-                </TextBlock>
-                <TextBox
-                    Grid.Column="1" Grid.Row="2"
-                    Margin="10"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center" 
-                    Watermark="Quantity">
-                </TextBox>
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="3"
-                    Margin="10"
-                    Foreground="Gray"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="Единица измерения">
-                    
-                </TextBlock>
-                <TextBox 
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    Margin="10 "
-                    HorizontalAlignment= "Stretch"
-                    VerticalAlignment="Center" 
-                    Watermark="Unit">
-                </TextBox>
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="4"
-                    Margin="10" 
-                    Foreground="Gray" 
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="Поставщик">
-                </TextBlock>
-                <TextBox
-                    Grid.Column="1" Grid.Row="4"
-                    Margin="10" 
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center" 
-                    Watermark="Provaider">
-                </TextBox>
-                <TextBlock
-                    Grid.Column="0 " Grid.Row="5" 
-                    Margin="10"
-                    Foreground="Gray"
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Bottom" 
-                    Text="Цена">
-                    
-                </TextBlock>
-                <TextBox
-                    Grid.Column="1" Grid.Row="5" 
-                    Margin="10 " 
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center" 
-                    Watermark="Price">
-                </TextBox>
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="6" 
-                    Margin="10" 
-                    Foreground="Gray" 
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center" 
-                    Text="Описание">
-                </TextBlock>
-                <TextBox 
-                    Grid.Column="1" Grid.Row="6" 
-                    Margin="10" 
-                    HorizontalAlignment="Stretch" 
-                    VerticalAlignment="Center"
-                    Watermark="Description">
-                </TextBox>
-                <TextBlock 
-                    Grid.Column="0" Grid.Row="7"
-                    Margin="10" 
-                    Foreground="Gray"  
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Center" 
-                    Text="Картина" >
-                </TextBlock>
-                <TextBox 
-                    Grid.Column="1" Grid.Row="7" 
-                    Margin="10"
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Center"
-                    Watermark="Painting">
-                    
-                </TextBox>
-            </Grid>
-            <Button  Click="Add_Product" Margin =" 15 15" Width="50" Height="40" HorizontalAlignment="Left" CornerRadius="7"  >
-                 Add
-            </Button>
-               
-        </StackPanel>
+  <StackPanel>
+		<TextBlock>
+			Добавление товара
+		</TextBlock>
+		<Grid Margin="50 30" ColumnDefinitions="* *" RowDefinitions="* * * * * * * * *">
+			<TextBlock Grid.Column="0" Grid.Row="0" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Название:"/>
+			<TextBox Grid.Column="1" Grid.Row="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Name"/>
+			<TextBlock Grid.Column="0" Grid.Row="1" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Категория:"/>
+			<TextBox Grid.Column="1" Grid.Row="1" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Category"/>
+			<TextBlock Grid.Column="0" Grid.Row="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Количество:"/>
+			<TextBox Grid.Column="1" Grid.Row="2" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Quantity"/>
+			<TextBlock Grid.Column="0" Grid.Row="3" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Единица измерения:"/>
+			<TextBox Grid.Column="1" Grid.Row="3" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="MeasureUnit"/>
+			<TextBlock Grid.Column="0" Grid.Row="4" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Поставщик:"/>
+			<TextBox Grid.Column="1" Grid.Row="4" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Manufacturer"/>
+			<TextBlock Grid.Column="0" Grid.Row="5" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Стоимость:"/>
+			<TextBox Grid.Column="1" Grid.Row="5" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Price"/>
+			<TextBlock Grid.Column="0" Grid.Row="6" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Описание:"/>
+			<TextBox Grid.Column="1" Grid.Row="6" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center" Name="Description"/>
+			<TextBlock Grid.Column="0" Grid.Row="7" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center" Text="Картинка:"/>
+			<Button Click="AddImage" Grid.Column="1" Grid.Row="7" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+				<TextBlock>
+					Добавить картинку
+				</TextBlock>
+			</Button>
+			<Image Name="ProductImage" Grid.Column="1" Grid.Row="8" Margin="10" Width="175" Height="175" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+		</Grid>
+		<Button Name="Add" HorizontalAlignment="Center" Click="ProductAdd">
+			Добавить
+		</Button>
+		<Button Name="Edit" HorizontalAlignment="Center" Click="ProductEdit">
+			Редактировать
+		</Button>
+	</StackPanel>
 </Window>
